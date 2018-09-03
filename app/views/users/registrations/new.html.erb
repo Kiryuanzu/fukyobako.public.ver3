@@ -1,0 +1,45 @@
+<%= image_tag("letsfukyo.png", :class => "Fukyochan") %>
+<div class="signup">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">新規登録</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレスを入力" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :username %> <em>(12文字以内)</em><br>
+          <%= f.text_field :username, class: "form-control", autofocus: true, maxlength: "12", placeholder: "ユーザーネーム(12文字以内)を入力" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %>文字以上)</em>
+          <% end %><br />
+          <%= f.password_field :password, class: "form-control", placeholder: "パスワードを入力", autocomplete: "off" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off", placeholder: "パスワード(確認用)を入力" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "新規登録", class: "btn btn-lg btn-success btn-block" %>
+        </div>
+
+        <div class="twitter-signup">
+          <button class= "btn btn-default btn-lg btn-block">
+          <i class="fa fa-twitter"></i>
+          <%= link_to 'Twitterアカウントで登録', user_twitter_omniauth_authorize_path %>
+        </button>
+        </div>
+
+        <% end %>

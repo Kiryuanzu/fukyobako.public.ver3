@@ -1,0 +1,41 @@
+<%= image_tag("letsfukyo.png", :class => "Fukyochan") %>
+<div class="login">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+            <h3 class="panel-title">持っているアカウントでログイン</h3>
+      </div>
+      <div class="panel-body">   
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレスを入力" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off", class: "form-control",placeholder: "パスワードを入力" %>
+        </div>
+
+        <div class="checkbox">
+          <% if devise_mapping.rememberable? %>  <label>
+            <input name="remember" type="checkbox" value="Remember Me"> 記憶する
+          </label>
+        <% end %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "ログイン", class: "btn btn-lg btn-success btn-block" %>
+        </div>
+        <% end %>
+      <div class="twitter-signin">
+          <button class= "btn btn-default btn-lg btn-block">
+          <i class="fa fa-twitter"></i>
+          <%= link_to 'Twitterアカウントでログイン', user_twitter_omniauth_authorize_path %>
+        </button>
+        </div>
+      <%= render "users/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

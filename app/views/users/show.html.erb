@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <%= render 'top/script' %>
+  </head>
+  <body>
+    <main>
+      <% provide(:description,@user.username.to_s + "さんのページ") %>
+      <% provide(:site_url,url_for( :only_path => false)) %>
+      <span class=username>
+        <span class= "name" ><%= @username %></span>
+        <% if @user.avatar.attached?%>
+          <span class="miniimage">
+          <%= image_tag @user.avatar.variant(resize: "32x32")%>
+          </span>
+        <% end %>
+        <span class="user" >さんのお題と布教一覧</span>
+      </span>
+    <% if user_signed_in? && current_user.id == @user.id  %>
+      <div class="name-edit"><%= link_to '名前とアイコンを変更', edit_user_path(current_user), {class: 'btn btn-primary withripple' } %></div>
+    <a href="http://twitter.com/share?url=<%= url_for( :only_path => false) %>&amp;text=<%= @user.username %>さんのお題一覧です。レッツ布教！&amp;related=kiryuanzu&amp;hashtags=fukyobako" id="tweet" class="btn btn-info withripple btn-lg" target="_blank" name="tweet">twitterでお題一覧を共有する</a>
+    <% end %>
+    <%= render 'users/contents' %>
+    </main>
+  </body>
+

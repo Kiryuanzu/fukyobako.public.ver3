@@ -1,0 +1,59 @@
+.twitter-signup {
+  margin-top: 13px;
+}
+
+.twitter-signin {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.login {
+	width: 400px;
+	height: 450px;
+	margin: 0 auto;	
+}
+
+img.Fukyo-logo{
+   width: 30px;
+   height:30px;
+}
+
+.signup {
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
+}
+
+img.Fukyochan {
+   display:block;
+   margin-left:auto;
+   margin-right:auto;
+
+  width: 200px;
+  height: 200px;
+}
+
+.edit {
+	
+}
+
+@media only screen and (max-width: 414px) {
+	.login {
+	width: 225px;
+	height: 260px;
+	margin-right:80px;
+	padding-bottom:80px;
+   }
+   .signup {
+	width: 225px;
+	height: 200px;
+	margin-left: 80px;
+	margin-top: 10px;
+}
+   img.Fukyochan {
+	width: 100px;
+	height: 100px;
+	margin-left: 75px;
+}
+
+}
